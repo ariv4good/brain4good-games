@@ -1,0 +1,14 @@
+.tile::before {
+    height: 20px;
+    width: 27px;
+    top: var(--tile-top);
+    left: var(--tile-left);
+}
+
+.tile-bright-green::before {
+    background-position: -356px 124px;
+}
+
+.tile-dark-green::before {
+    background-position: -356px 221px;
+}

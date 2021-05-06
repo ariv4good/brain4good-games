@@ -1,0 +1,11 @@
+.buildings-sprite::before {
+  background-image: url('./images/buildings/buildings-sprite.png');
+  display: inline-block;
+  content: '';
+  position: relative;
+}
+
+.full-image::before {
+  height: 1200px;
+  width: 1887px;
+}
