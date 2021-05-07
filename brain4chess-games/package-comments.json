@@ -1,0 +1,16 @@
+{
+    "name": "app name",
+    "version": "major version, minor version, subminor version",
+    "private": "npm will refuse to publish it",
+    "dependencies": { // dependencies that will be part of final build
+      "react": "functionality necessary to define react components",
+      "react-dom": "serves as the entry point to the DOM and server renderers for React",
+      "react-scripts": "scripts and configuration used by create react app"
+    },
+    "devDependencies": { // dependencies that will only be used in development phase
+      "@types/react": "ts version of react dependency",
+      "@types/react-dom": "ts version of react-dom dependency",
+      "typescript": "compiles ts to readable, standards-based js"
+    }
+  }
+  
