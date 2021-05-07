@@ -9,6 +9,7 @@
 
 # Development Best Practices
 * Goal - Easy team work
+* Proper git usage
 * Proper documentation - Less learning curve for newbie
     * comment all known things
     * get more knowledge in unknown things
