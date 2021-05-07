@@ -1,20 +1,25 @@
 # Game Plan
-* https://geeksretreat.wordpress.com/2012/06/01/html-5-canvas-chess-board/
-* draw a queen on any tile
-* place queen on clicked tile
-* N-Queen's puzzle game
+* N-Queen puzzle game
+    * Board array to access any square rect object
+    * Click listeners for square rect objects - Alert row, col of clicked square
+    * Data structure to hold position of pieces in board
+    * Queen's possible moves computation
+* Upgrade to N-Piece puzzle game
+    * Other piece's possible moves computation
+* Move images from png to svg
 * moblie responsiveness
 * Able to use in mock interview
-* convert to 3d rendering when needed
 
 # Development Best Practices
 * Goal - Easy team work
 * Proper git usage
+* Git license - code by others - rights
 * Proper documentation - Less learning curve for newbie
     * comment all known things
     * get more knowledge in unknown things
     * Do actual react documentation
 * Proper MVC
+    * Default values for IBoardConfig
     * images folder
     * drawChessBoard function in Board.tsx
 * Cleanup the project - there shouldn't be any unecessary things in project
@@ -27,7 +32,21 @@
 * Reduce Build size - less data consumed for end user
 * Lazy Loading - quick download of mandatory components
 
+# drawings
+* merging the drawing API code and the rest (integration): similar
+* ease of use:
+    * (with library) canvas = webGL
+    * (from scratch) webGL << canvas
+* speed: webGL > canvas
+* capabilities: webGL > canvas
+* cost: webGL is much more expensive
+* platform: very similar
 
+Convert Images to Canvas2D drawings
+* https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+
+Replace Canvas2D drawings with WebGL canvas drawings
+* https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial
 
 # Getting Started with Create React App
 

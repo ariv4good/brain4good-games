@@ -1,12 +1,8 @@
-# strategic-board-game
-Strategic board games with online multiplayer theme like pubg - voice call
-
-# drawings
-Replace pictures with WebGL canvas drawings
-https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL
+# Brain4Good Games
+* Strategic board games with online multiplayer theme like pubg - voice call
 
 # Games in development
-* Brain4ChessGame
+* Brain4Good ChessGames
 * COC theme
 * Brain4RiskGame
 * Brain4TicTacToeGame
