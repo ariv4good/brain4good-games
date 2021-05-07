@@ -1,18 +1,25 @@
 import IPoint from '../../utils/geometry/IPoint';
+import IRowCol from '../../utils/matrix/IRowCol';
+import ITile from '../tile/ITile';
 import IBoard from './IBoard';
 
 class Board implements IBoard {
     private rowCnt: number;
     private colCnt: number;
-    private sqrSize: number;
+    private tileSize: number;
     private boardTopLeft: IPoint;
     private lightColor: string;
     private darkColor: string;
+    private tilesMat: ITile[][];
     
     constructor() {
         this.rowCnt = 8;
         this.colCnt = 8;
-        this.sqrSize = 100;
+        this.tilesMat = new Array(this.rowCnt);
+        for(let i = 0;i < this.colCnt;i++) {
+            this.tilesMat[i] = new Array(this.colCnt).fill(undefined);
+        }
+        this.tileSize = 100;
         this.boardTopLeft = { x: 0, y: 0 };
         this.lightColor = '#CDAA7D';
         this.darkColor = '#855E42';
@@ -33,12 +40,16 @@ class Board implements IBoard {
         this.colCnt = colCnt;
         return this;
     }
-    
-    getSqrSize(): number {
-        return this.sqrSize;
+
+    getTile(pos: IRowCol): ITile {
+        return this.tilesMat[pos.row][pos.col];
     }
-    setSqrSize(sqrSize: number) {
-        this.sqrSize = sqrSize;
+    
+    getTileSize(): number {
+        return this.tileSize;
+    }
+    setTileSize(tileSize: number) {
+        this.tileSize = tileSize;
         return this;
     }
     
@@ -67,11 +78,11 @@ class Board implements IBoard {
     }
     
     getWidth(): number {
-        return (this.colCnt * this.sqrSize) + 50;
+        return (this.colCnt * this.tileSize) + 50;
     }
     
     getHeight(): number {
-        return (this.rowCnt * this.sqrSize) + 50;
+        return (this.rowCnt * this.tileSize) + 50;
     }
 }
 

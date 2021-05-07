@@ -2,15 +2,15 @@ import IRowCol from '../../utils/matrix/IRowCol';
 import EPieceName from './EPieceName';
 import EPieceStatus from './EPieceStatus';
 import IPiece from './IPiece';
-import IColor from '../color/IColor';
+import EColor from '../color/EColor';
 
 class Piece implements IPiece {
     private name: EPieceName;
-    private color: IColor;
+    private color: EColor;
     private pos: IRowCol;
     private status: EPieceStatus;
 
-    constructor(name: EPieceName, color: IColor) {
+    constructor(name: EPieceName, color: EColor) {
         this.name = name;
         this.color = color;
         this.pos = {row: 0, col: 0} as IRowCol;
@@ -25,7 +25,7 @@ class Piece implements IPiece {
         return this.name;
     }
 
-    setColor(color: IColor) {
+    setColor(color: EColor) {
         this.color = color;
         return this;
     }
