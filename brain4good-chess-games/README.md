@@ -17,6 +17,14 @@
     * Integrate with mock interview
         * Redirect to N-Queen's puzzle from mock interview
         * Send data generated when redirecting back to mock interview
+    * Github setups
+        * Settings -> Scroll down -> Change repository visibility to private
+        * Make sure you have full permission in local account
+        * Start raising issues instead of filling up README.md
+        * Get a proper github license
+        * Give dev branch commit permission to other developers once code is reviewed
+        * Give permission to merge code changes in dev branch to test branch
+        * Merge code changes in dev branch to prod branch
 * moblie responsiveness
 * Upgrade to N-Piece puzzle game
     * Other piece's possible moves computation
@@ -45,7 +53,7 @@
     * Deploy in test server
     * Run Integration testing
     * Automate code review
-    * 
+    * Deploy in prod server
 * Data structures
 * Algorithms
 * Reduce Build size - less data consumed for end user

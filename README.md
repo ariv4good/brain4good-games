@@ -7,3 +7,8 @@
 * Brain4RiskGame
 * Brain4TicTacToeGame
 * Ariv4Dhaayam
+
+# Learning curve for new developers
+* VS code - git, terminal, refactoring renames
+* ReactJS - understand as you work, no need for any other tutorials
+* Canvas - understand as you work
