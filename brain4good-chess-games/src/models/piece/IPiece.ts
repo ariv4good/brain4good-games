@@ -1,11 +1,11 @@
 import IRowCol from '../../utils/matrix/IRowCol';
 import EPieceName from './EPieceName';
 import EPieceStatus from './EPieceStatus';
-import EPieceColor from '../color/IColor';
+import EColor from '../color/EColor';
 
 interface IPiece {
     getName(): EPieceName,
-    getColor(): EPieceColor,
+    getColor(): EColor,
     getPos(): IRowCol, // position of piece in board
     getStatus(): EPieceStatus
 }

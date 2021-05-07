@@ -1,34 +1,43 @@
 # Game Plan
-* N-Queen puzzle game
+* N-Queen's Puzzle Game
     * Intial version
-        * Board array to access any square rect object
-        * Click listeners for square rect objects - Alert row, col of clicked square
-            * Draw Queen on square clicked
-        * Data structure to hold position of pieces drawn
-        * Queen's possible moves computation
-            * Show error if queen placement is incorrect
-            * Wait for another click
-        * Submit buttion
+        * Track pieces placed on board in tiles array
+        * OnTileClick
+            * Tile not empty - Game over
+            * Tile empty
+                * Place Queen
+                    * Conflicts with another queen
+                        * Highlight in Red - Game over
+                    * No conflict with another queen
+                        * OnTileClick again or OnSubmitClick
+        * OnSubmitClick
             * Track time taken for first click
             * Track squares clicked
             * Track time taken for each click
             * Track time taken to click submit button
             * Generate above data as JSON
-    * Integrate with mock interview
-        * Redirect to N-Queen's puzzle from mock interview
-        * Send data generated when redirecting back to mock interview
     * Github setups
-        * Settings -> Scroll down -> Change repository visibility to private
         * Make sure you have full permission in local account
         * Start raising issues instead of filling up README.md
         * Get a proper github license
-        * Give dev branch commit permission to other developers once code is reviewed
-        * Give permission to merge code changes in dev branch to test branch
-        * Merge code changes in dev branch to prod branch
-* moblie responsiveness
-* Upgrade to N-Piece puzzle game
-    * Other piece's possible moves computation
-* Move images from png to svg
+    * Integrate with mock interview
+        * Redirect to N-Queen's puzzle from mock interview
+        * Send data generated when redirecting back to mock interview
+    * moblie responsiveness
+    * Upgrade to N-Piece puzzle game
+        * Other piece's possible moves computation
+    * Move images from png to svg
+* Risk Chess Domination Game
+    * Actual chessboard
+    * All chess pieces with same points as in chess
+    * No. of colors = no. of players
+    * Deploy troops in your tiles with points
+        * Points will be based on
+            * 1x1x1 point for 1x1 tiles conquered
+            * 2x2x2 point for 2x2 tiles conquered
+            * 3x3x3 point for 3x3 tiles conquered
+    * Attack to convert other tiles to your tiles
+    * Fortify move one piece within your tiles for defence
 
 # Development Best Practices
 * Goal - Easy team work
@@ -45,19 +54,56 @@
     * Root folder
 
 # Performance optimization
-* React features
-    * Use Hooks effectively
-        * Add useState in combo with useEffect in BoardComp.tsx
-    * Run Unit Testing
-    * Generate build effectively
-    * Deploy in test server
-    * Run Integration testing
-    * Automate code review
-    * Deploy in prod server
-* Data structures
-* Algorithms
-* Reduce Build size - less data consumed for end user
-* Lazy Loading - quick download of mandatory components
+* Use Hooks effectively - Add useState in combo with useEffect in BoardComp.tsx
+* https://www.pluralsight.com/guides/pros-and-cons-of-client-side-routing-with-react
+* React features for software development lifecycle
+
+# MVC
+* Currently being used
+    * components
+        * board
+        * tile
+        * piece
+    * models
+        * board
+        * tile
+        * piece
+    * services
+        * board
+        * tile
+        * piece
+* Alternative 
+    * board
+        * components
+        * models
+        * services
+    * tile
+        * components
+        * models
+        * services
+    * piece
+        * components
+        * models
+        * services
+
+Solid principles
+* Single responsiblity
+    * A class should have one and only one reason to change - a class should have only one job.
+* Open closed
+    * Open for extension but closed for modification
+* Liskov substitution
+* Interface segregation
+    * A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
+    * API designs
+* Dependency inversion
+    * Passing data between objects without creating much dependencies
+    * Spring - BeanFactory, ApplicationContext
+    * AppCtx - Map<string, Object>
+    * Inject object to AppCtx after initialization
+    * Retrieve object from AppCtx for usage outside scope of creation
+    * Clear object from AppCtx once it is known to be not reused in further code or logic
+    * React Hooks - useState is similar to AppCtx in Spring
+* https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design
 
 # drawings
 * merging the drawing API code and the rest (integration): similar
