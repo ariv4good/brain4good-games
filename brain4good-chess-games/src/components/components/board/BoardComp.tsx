@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Board from '../../../models/board/Board';
 import BoardService from '../../../services/BoardService';
 
-function BoardComp(props: { onBoardDraw: CallableFunction } ) {
+function BoardComp(props: { onBoardDraw: CallableFunction, onTileClick: CallableFunction } ) {
     const board = new Board()
         .setBoardTopLeft( { x: 50, y: 50 } )
         .setRowCnt(4)
@@ -10,7 +10,11 @@ function BoardComp(props: { onBoardDraw: CallableFunction } ) {
     useEffect(() => {
         const canvas = document.getElementById('canvasChessboard') as HTMLCanvasElement;
         const boardService = new BoardService(board, canvas);
-        props.onBoardDraw(boardService);
+        const drawingArea = boardService.getDrawingArea();
+        props.onBoardDraw(board, drawingArea);
+        canvas.addEventListener('click', (event: MouseEvent) => {
+            props.onTileClick(event, board, drawingArea);
+        });
     }, []);
     return (
         <canvas id='canvasChessboard' width={`${board.getWidth()}px`} height={`${board.getHeight()}px`}></canvas>
