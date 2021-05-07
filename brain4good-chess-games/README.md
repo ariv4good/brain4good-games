@@ -1,14 +1,26 @@
 # Game Plan
 * N-Queen puzzle game
-    * Board array to access any square rect object
-    * Click listeners for square rect objects - Alert row, col of clicked square
-    * Data structure to hold position of pieces in board
-    * Queen's possible moves computation
+    * Intial version
+        * Board array to access any square rect object
+        * Click listeners for square rect objects - Alert row, col of clicked square
+            * Draw Queen on square clicked
+        * Data structure to hold position of pieces drawn
+        * Queen's possible moves computation
+            * Show error if queen placement is incorrect
+            * Wait for another click
+        * Submit buttion
+            * Track time taken for first click
+            * Track squares clicked
+            * Track time taken for each click
+            * Track time taken to click submit button
+            * Generate above data as JSON
+    * Integrate with mock interview
+        * Redirect to N-Queen's puzzle from mock interview
+        * Send data generated when redirecting back to mock interview
+* moblie responsiveness
 * Upgrade to N-Piece puzzle game
     * Other piece's possible moves computation
 * Move images from png to svg
-* moblie responsiveness
-* Able to use in mock interview
 
 # Development Best Practices
 * Goal - Easy team work
@@ -19,14 +31,21 @@
     * get more knowledge in unknown things
     * Do actual react documentation
 * Proper MVC
-    * Default values for IBoardConfig
     * images folder
-    * drawChessBoard function in Board.tsx
 * Cleanup the project - there shouldn't be any unecessary things in project
     * Public folder
     * Root folder
 
 # Performance optimization
+* React features
+    * Use Hooks effectively
+        * Add useState in combo with useEffect in BoardComp.tsx
+    * Run Unit Testing
+    * Generate build effectively
+    * Deploy in test server
+    * Run Integration testing
+    * Automate code review
+    * 
 * Data structures
 * Algorithms
 * Reduce Build size - less data consumed for end user
