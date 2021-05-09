@@ -3,10 +3,8 @@ import Board from '../../../models/board/Board';
 import BoardService from '../../../services/BoardService';
 
 function BoardComp(props: { onBoardDraw: CallableFunction, onTileClick: CallableFunction } ) {
-    const board = new Board()
-        .setBoardTopLeft( { x: 50, y: 50 } )
-        .setRowCnt(4)
-        .setColCnt(4);
+    const board = new Board( {row: 4, col: 4} )
+        .setBoardTopLeft( { x: 50, y: 50 } );
     useEffect(() => {
         const canvas = document.getElementById('canvasChessboard') as HTMLCanvasElement;
         const boardService = new BoardService(board, canvas);

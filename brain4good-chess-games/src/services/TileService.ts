@@ -25,34 +25,29 @@ class TileService {
         }
     }
     
-    drawPiece(piece: IPiece, dx: number = -1, dy: number = -1) {
+    drawPiece(piece: IPiece, pos: IRowCol) {
+        const tilesMat = this.board.getTilesMat();
+        tilesMat[pos.row][pos.col].setPiece(piece);
         const tileSize = this.board.getTileSize();
         const boardTopLeft = this.board.getBoardTopLeft();
         const image = new Image();
         image.src = pieceSprite;
         const sx = tileSize * piece.getName();
         const sy = piece.getColor() === EColor.DarkColor ? 0 : tileSize;
-        if(dx === -1) {
-            dx = (piece.getPos().col * tileSize) + boardTopLeft.x;
-        }
-        if(dy === -1) {
-            dy = piece.getPos().row * tileSize + boardTopLeft.y;
-        }
+        const dx = (pos.col * tileSize) + boardTopLeft.x;
+        const dy = pos.row * tileSize + boardTopLeft.y;
         const [sw, sh, dw, dh] = [tileSize, tileSize, tileSize, tileSize];
         image.onload = () => {
             this.drawingAreaCtx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
         };
     }
 
-    drawPieceByClickPoint(point: IPoint, piece: IPiece) {
+    getClickPos(point: IPoint, piece: IPiece) {
         const tileSize = this.board.getTileSize();
-        // const dx = point.x - point.x % tileSize + tileSize / 2;
-        // const dy = point.x - point.x % tileSize + tileSize / 2;
-        (piece as Piece).setPos({
+        return {
             row: Math.floor(point.y / tileSize),
             col: Math.floor(point.x / tileSize)
-        } as IRowCol);
-        this.drawPiece(piece);//, dx, dy);
+        } as IRowCol;
     }
 }
 

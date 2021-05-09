@@ -9,8 +9,12 @@ class ColorService {
         this.colorsMap.set(EColor.DarkColor, '#855E42');
     }
 
-    getColorCode(color: EColor) {
-        return this.colorsMap.get(color);
+    getColorCode(color: EColor): string {
+        const colorCode = this.colorsMap.get(color);
+        if(!colorCode) {
+            throw Error('Invalid color code');
+        }
+        return colorCode;
     }
 }
 

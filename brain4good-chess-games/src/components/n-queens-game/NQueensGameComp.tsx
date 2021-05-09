@@ -3,6 +3,7 @@ import Board from '../../models/board/Board';
 import EColor from '../../models/color/EColor';
 import EPieceName from '../../models/piece/EPieceName';
 import Piece from '../../models/piece/Piece';
+import GameService from '../../services/GameService';
 import TileService from '../../services/TileService';
 import BoardComp from '../components/board/BoardComp';
 
@@ -21,7 +22,15 @@ function NQueensGameComp() {
             y: event.pageY - boardTopLeft.y
         };
         const piece = new Piece(EPieceName.Queen, EColor.DarkColor);
-        new TileService(board, drawingArea).drawPieceByClickPoint(point, piece);
+        const tileService = new TileService(board, drawingArea);
+        const pos = tileService.getClickPos(point, piece);
+        const gameService = new GameService(board);
+        if(gameService.isValidClick(pos)) {
+            tileService.drawPiece(piece, pos);
+        }
+        else {
+            alert('Game over')
+        }
     };
     return (
         <BoardComp onBoardDraw={onBoardDraw} onTileClick={onTileClick} />

@@ -1,4 +1,6 @@
 import IBoard from '../models/board/IBoard';
+import EColor from '../models/color/EColor';
+import ColorService from './ColorService';
 
 class BoardService {
     private board: IBoard;
@@ -29,25 +31,23 @@ class BoardService {
     }
 
     draw() {
-        const rowCnt = this.board.getRowCnt();
-        const colCnt = this.board.getColCnt();
+        const size = this.board.getSize();
+        const tilesMat = this.board.getTilesMat();
         const tileSize = this.board.getTileSize();
         const boardTopLeft = this.board.getBoardTopLeft();
-        const lightColor = this.board.getLightColor();
-        const darkColor = this.board.getDarkColor();
-        for(let i = 0; i < rowCnt; i++) {
-            for(let j = 0; j < colCnt; j++) {
+        const colorService = new ColorService();
+        for(let i = 0; i < size.row; i++) {
+            for(let j = 0; j < size.col; j++) {
                 // draw each squares in chessboard
-                this.drawingAreaContext.fillStyle = ( (i + j) % 2 === 0 ) ? lightColor : darkColor;
-                this.drawingAreaContext.fillStyle = ( (i + j) % 2 === 0 ) ? lightColor : darkColor;
+                this.drawingAreaContext.fillStyle = colorService.getColorCode(tilesMat[i][j].getColor());
                 let xOffset = boardTopLeft.x + j * tileSize;
                 let yOffset = boardTopLeft.y + i * tileSize;
                 this.drawingAreaContext.fillRect(xOffset, yOffset, tileSize, tileSize);
             }
         }
         // draw the border around the chessboard
-        this.drawingAreaContext.strokeStyle = darkColor;
-        this.drawingAreaContext.strokeRect(boardTopLeft.x, boardTopLeft.y, tileSize * rowCnt, tileSize * colCnt)
+        this.drawingAreaContext.strokeStyle = colorService.getColorCode(EColor.DarkColor);
+        this.drawingAreaContext.strokeRect(boardTopLeft.x, boardTopLeft.y, tileSize * size.row, tileSize * size.col)
     }
 }
 

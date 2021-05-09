@@ -3,6 +3,7 @@ import IPiece from "../piece/IPiece";
 
 interface ITile {
     getColor(): EColor,
+    setPiece(piece: IPiece): ITile,
     getPiece(): IPiece | undefined
 }
 
